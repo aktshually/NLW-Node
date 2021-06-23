@@ -97,3 +97,25 @@ Faz praticamente todos os serviços da nossa aplicação, até agora os serviço
 
 ### Controller
 Funciona com um *request, response*. Dentro dele, nós teremos acesso ao request que está sendo feito e a resposta atribuída ao mesmo, semelhante ao formato de como fizemos na primeira aula (`app.get(), app.post()`)
+
+### Middleware
+São interceptadores dentro de uma requisição. Eles podem ser usados para fazer uma tratativa de erro e exibir uma mensagem a partir disso, por exemplo.
+Sempre que have a utilização de `express().use()`, você estará fazendo um middleware.
+Um middleware também fica entre nossa requisição (request) e nossa resposta (response), assim permitindo fazer checagens de possíveis incongruências durante a navegação do usuário na nossa aplicação (por exemplo, falta de permissões para acessar determinada rota)
+
+### findOne()
+
+Pode ser traduzido em SQL como:
+```sql
+SELECT * FROM tabela WHERE something = 'something'
+``` 
+O parâmetro que o método recebe é um objeto o qual, se contém apenas um valor, este valor será validado para pegar todos os valores nomeados com o nome daquele valor e com o respectivo valor. Ou seja, como no projeto, nós usamos apenas um valor dentro do nosso objeto:
+```ts
+const tagAlreardyExists = await tagsRepositories.findOne({
+    name
+})
+```
+Poderia ser traduzido como, por exemplo:
+```sql
+SELECT * FROM tags WHERE name = 'valor da variável name'
+```
