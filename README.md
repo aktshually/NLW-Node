@@ -119,3 +119,26 @@ Poderia ser traduzido como, por exemplo:
 ```sql
 SELECT * FROM tags WHERE name = 'valor da variável name'
 ```
+
+
+## Terceira aula
+~~nenhum conteúdo adicional ao express, essencialmente~~
+
+## Quarta aula
+
+### JWT
+É um padrão de token que permite fazer comunicações entre requisições usando esse token.
+É basicamente um token que é passado entre as requisições para as rotas, com o objetivo de fazer uma verificação. Ele contem 3 partes:
+
+- **Header:** responsável por armazenar o tipo de token utilizado e o algorítimo.
+- **Payload**: contém os dados que seriam compartilhados. Não é recomendado armazenar informações sensíveis (senha, informações pessoais, etc) no payload pois este pode ser descriptografado e usado contra o usuário.
+- **Verify signature**: concatena o **header** e **payload**, além disso precisa de uma chave secreta para validar o token. Geralmente é gerada uma chave única para a aplicação.
+
+### Comandos para typeorm
+
+Os comandos já foram abordados em outra aula porém esqueci de fazer as devidas anotações, então constam aqui os comandos.
+
+| Comando  | Função  |
+|---|---|
+| `yarn typeorm migration:create -n MigrationName`  | Cria uma migration com o nome inserido   |
+| `yarn typeorm migration:run`  | Roda a migration e cria o(s) campo(s) especificado(s)  |
